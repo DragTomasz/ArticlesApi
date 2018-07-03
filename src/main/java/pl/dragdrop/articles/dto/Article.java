@@ -4,11 +4,13 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.util.Date;
 
+import lombok.Builder;
 import lombok.Data;
 
 import static com.fasterxml.jackson.annotation.JsonFormat.Shape.STRING;
 
 @Data
+@Builder
 public class Article {
 
     private String author;
