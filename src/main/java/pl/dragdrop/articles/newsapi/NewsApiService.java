@@ -4,15 +4,12 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
-import java.lang.invoke.MethodHandles;
 import java.util.Optional;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 import okhttp3.ResponseBody;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import org.springframework.stereotype.Service;
 
@@ -25,17 +22,16 @@ import retrofit2.Response;
 import static org.apache.logging.log4j.util.Strings.EMPTY;
 
 @Service
+@Slf4j
 @AllArgsConstructor
 public class NewsApiService {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
     private final NewsApiEndpoint newsApiEndpoint;
 
     public NewsResponse getNews(final String country, final String category) throws IOException {
         Call<NewsResponse> newsCall = newsApiEndpoint.getNews(country, category);
 
-        LOGGER.info(String.format("Sending request to: %s", newsCall.request().url().toString()));
+        log.info(String.format("Sending request to: %s", newsCall.request().url().toString()));
 
         Response<NewsResponse> newsResponse = newsCall.execute();
         if (!newsResponse.isSuccessful()) {

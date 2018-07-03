@@ -2,6 +2,7 @@ package pl.dragdrop.articles.service;
 
 import lombok.AllArgsConstructor;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import pl.dragdrop.articles.dto.Article;
@@ -15,6 +16,7 @@ import java.util.stream.Collectors;
 import java.util.List;
 
 @Service
+@Slf4j
 @AllArgsConstructor
 public class NewsService {
 
@@ -24,6 +26,7 @@ public class NewsService {
         try {
             return mapNews(newsApiService.getNews(country, category), country, category);
         } catch (IOException e) {
+            log.error(e.getMessage());
             throw new RuntimeException();
         }
     }

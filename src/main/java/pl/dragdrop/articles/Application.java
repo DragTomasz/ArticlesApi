@@ -1,20 +1,16 @@
 package pl.dragdrop.articles;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.lang.invoke.MethodHandles;
-
+@Slf4j
 @SpringBootApplication
 public class Application {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
-
     public static void main(String[] args) {
-        LOGGER.info(String.format("Start... JVM version: %s", System.getProperty("java.version")));
+        log.info(String.format("Start... JVM version: %s", System.getProperty("java.version")));
         SpringApplication.run(Application.class, args);
     }
 }
