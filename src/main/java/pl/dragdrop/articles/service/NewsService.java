@@ -11,8 +11,10 @@ import pl.dragdrop.articles.exception.FailedDependencyException;
 import pl.dragdrop.articles.newsapi.dto.ArticleResponse;
 import pl.dragdrop.articles.newsapi.dto.NewsResponse;
 import pl.dragdrop.articles.newsapi.NewsApiService;
+import pl.dragdrop.articles.newsapi.dto.Pagination;
 
 import java.io.IOException;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.List;
 
@@ -33,6 +35,7 @@ public class NewsService {
     }
 
     private News mapNews(NewsResponse newsResponse, String country, String category) {
+        Pagination.totalArticles = Optional.ofNullable(newsResponse.getTotalResults()).orElse(0);
         return News.builder()
                 .category(category)
                 .country(country)

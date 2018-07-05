@@ -11,6 +11,8 @@ public interface NewsApiEndpoint {
     @GET("v2/top-headlines")
     Call<NewsResponse> getNews(
             @Query("country") String country,
-            @Query("category") String category
+            @Query("category") String category,
+            @Query("page") Integer page,
+            @Query("pageSize") Integer pageSize
     );
 }
