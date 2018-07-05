@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.util.Date;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import lombok.Builder;
 import lombok.Data;
 
@@ -13,12 +15,25 @@ import static com.fasterxml.jackson.annotation.JsonFormat.Shape.STRING;
 @Builder
 public class Article {
 
+    @ApiModelProperty(value = "author", position = 1)
     private String author;
+
+    @ApiModelProperty(value = "title", position = 2)
     private String title;
+
+    @ApiModelProperty(value = "description", position = 3)
     private String description;
+
     @JsonFormat(shape = STRING, pattern = "yyyy-MM-dd")
+    @ApiModelProperty(value = "date", position = 4)
     private Date date;
+
+    @ApiModelProperty(value = "sourceName", position = 5)
     private String sourceName;
+
+    @ApiModelProperty(value = "articleUrl", position = 6)
     private String articleUrl;
+
+    @ApiModelProperty(value = "imageUrl", position = 7)
     private String imageUrl;
 }
