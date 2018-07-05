@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import pl.dragdrop.articles.dto.Article;
 import pl.dragdrop.articles.dto.News;
+import pl.dragdrop.articles.exception.FailedDependencyException;
 import pl.dragdrop.articles.newsapi.dto.ArticleResponse;
 import pl.dragdrop.articles.newsapi.dto.NewsResponse;
 import pl.dragdrop.articles.newsapi.NewsApiService;
@@ -26,8 +27,8 @@ public class NewsService {
         try {
             return mapNews(newsApiService.getNews(country, category), country, category);
         } catch (IOException e) {
-            log.error(e.getMessage());
-            throw new RuntimeException();
+            log.error(e.toString());
+            throw new FailedDependencyException(e.toString());
         }
     }
 
@@ -54,5 +55,4 @@ public class NewsService {
                 .imageUrl(artResp.getUrlToImage())
                 .build();
     }
-
 }
