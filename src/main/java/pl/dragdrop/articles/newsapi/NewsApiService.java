@@ -33,7 +33,7 @@ public class NewsApiService {
 
         Call<NewsResponse> newsCall = newsApiEndpoint.getNews(country, category, Pagination.pageIndex, Pagination.pageSize);
 
-        log.info(String.format("Sending request to: %s", newsCall.request().url().toString()));
+        log.info(String.format("Sending request: %s", newsCall.request().url().toString()));
 
         Response<NewsResponse> newsResponse = newsCall.execute();
         if (!newsResponse.isSuccessful()) {

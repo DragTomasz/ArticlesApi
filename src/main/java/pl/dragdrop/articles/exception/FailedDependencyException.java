@@ -3,9 +3,8 @@ package pl.dragdrop.articles.exception;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-@ResponseStatus(HttpStatus.EXPECTATION_FAILED)
+@ResponseStatus(HttpStatus.FAILED_DEPENDENCY)
 public class FailedDependencyException extends RuntimeException {
-
     public FailedDependencyException(String message) {
         super(message);
     }
