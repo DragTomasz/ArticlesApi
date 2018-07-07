@@ -1,0 +1,8 @@
+server:
+  port: 8888
+
+url:
+  news:
+    api:
+      domain: https://newsapi.org/
+      key: 0cfa67a488dc4d0b9b2274368680af21
