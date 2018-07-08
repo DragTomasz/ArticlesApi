@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import pl.dragdrop.articles.exception.FailedDependencyException;
 import pl.dragdrop.articles.newsapi.dto.NewsResponse;
 import pl.dragdrop.articles.newsapi.dto.Pagination;
+import pl.dragdrop.articles.newsapi.dto.Phrase;
 
 import retrofit2.Call;
 import retrofit2.Response;
@@ -31,7 +32,7 @@ public class NewsApiService {
 
     public NewsResponse getNews(final String country, final String category) throws IOException {
 
-        Call<NewsResponse> newsCall = newsApiEndpoint.getNews(country, category, Pagination.pageIndex, Pagination.pageSize);
+        Call<NewsResponse> newsCall = newsApiEndpoint.getNews(country, category, Pagination.pageIndex, Pagination.pageSize, Phrase.phrase);
 
         log.info(String.format("Sending request: %s", newsCall.request().url().toString()));
 

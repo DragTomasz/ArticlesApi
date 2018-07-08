@@ -13,6 +13,7 @@ public interface NewsApiEndpoint {
             @Query("country") String country,
             @Query("category") String category,
             @Query("page") Integer page,
-            @Query("pageSize") Integer pageSize
+            @Query("pageSize") Integer pageSize,
+            @Query("q") String phrase
     );
 }

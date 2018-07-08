@@ -15,7 +15,7 @@ import pl.dragdrop.articles.testutils.NewsResponseMocker;
 import retrofit2.mock.Calls;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
-import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -26,9 +26,6 @@ public class NewsApiServiceTest {
 
     private final String COUNTRY = "pl";
     private final String CATEGORY = "technology";
-    private final Integer PAGE = 1;
-    private final Integer PAGE_SIZE = 5;
-
 
     @Mock
     private NewsApiEndpoint newsApiEndpoint;
@@ -47,7 +44,7 @@ public class NewsApiServiceTest {
 
         // given
         final NewsResponse mock = NewsResponseMocker.getNewsResponse();
-        when(newsApiEndpoint.getNews(anyString(), anyString(), anyInt(), anyInt())).thenReturn(Calls.response(mock));
+        when(newsApiEndpoint.getNews(anyString(), anyString(), any(), any(), any())).thenReturn(Calls.response(mock));
 
         // when
         final NewsResponse result = newsService.getNews(COUNTRY, CATEGORY);
@@ -56,14 +53,14 @@ public class NewsApiServiceTest {
         assertThat(result).isNotNull();
         assertThat(result).isEqualToComparingFieldByField(mock);
 
-        verify(newsApiEndpoint).getNews(COUNTRY, CATEGORY, PAGE, PAGE_SIZE);
+        verify(newsApiEndpoint).getNews(COUNTRY, CATEGORY, null, null, null);
     }
 
     @Test(expected = IOException.class)
     public void shouldCallThrowIOExceptionFailure() throws IOException {
 
         // given
-        when(newsApiEndpoint.getNews(anyString(), anyString(), anyInt(), anyInt())).thenReturn(Calls.failure(new IOException()));
+        when(newsApiEndpoint.getNews(anyString(), anyString(), any(), any(), any())).thenReturn(Calls.failure(new IOException()));
         // when
         final NewsResponse result = newsService.getNews(COUNTRY, CATEGORY);
     }
