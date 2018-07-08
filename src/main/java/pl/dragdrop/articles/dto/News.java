@@ -11,12 +11,12 @@ import lombok.Data;
 @Builder
 public class News {
 
-    @ApiModelProperty(value = "country", position = 1)
+    @ApiModelProperty( value = "kraj", position = 1)
     private String country;
 
-    @ApiModelProperty(value = "category", position = 2)
+    @ApiModelProperty(value = "kategoria", position = 2)
     private String category;
 
-    @ApiModelProperty(value = "articles", position = 3)
+    @ApiModelProperty(value = "lista artykułów", position = 3)
     private List<Article> articles;
 }

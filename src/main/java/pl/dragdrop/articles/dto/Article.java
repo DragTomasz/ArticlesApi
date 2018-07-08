@@ -15,25 +15,25 @@ import static com.fasterxml.jackson.annotation.JsonFormat.Shape.STRING;
 @Builder
 public class Article {
 
-    @ApiModelProperty(value = "author", position = 1)
+    @ApiModelProperty(value = "autor", position = 1)
     private String author;
 
-    @ApiModelProperty(value = "title", position = 2)
+    @ApiModelProperty(value = "tytuł", position = 2)
     private String title;
 
-    @ApiModelProperty(value = "description", position = 3)
+    @ApiModelProperty(value = "opis", position = 3)
     private String description;
 
     @JsonFormat(shape = STRING, pattern = "yyyy-MM-dd")
-    @ApiModelProperty(value = "date", position = 4)
+    @ApiModelProperty(value = "data", position = 4)
     private Date date;
 
-    @ApiModelProperty(value = "sourceName", position = 5)
+    @ApiModelProperty(value = "nazwa portalu", position = 5)
     private String sourceName;
 
-    @ApiModelProperty(value = "articleUrl", position = 6)
+    @ApiModelProperty(value = "adres do artykułu", position = 6)
     private String articleUrl;
 
-    @ApiModelProperty(value = "imageUrl", position = 7)
+    @ApiModelProperty(value = "adres do obrazka", position = 7)
     private String imageUrl;
 }
