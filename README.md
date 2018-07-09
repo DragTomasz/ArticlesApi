@@ -6,13 +6,13 @@ java - jdk1.8.0_172
 
 maven - 3.3.9
 
-Docker - Version 18.03.1-ce-win65 (17513)  (build na linux)
+docker - Version 18.03.1-ce-win65 (17513)  (build na linux)
 
 -------------------------------------------------------------
 #Uruchamianie projektu:
 
 1..
-instalacja pluginu do lomboka:
+Instalacja pluginu do lomboka:
 IntelliJ:
 `https://plugins.jetbrains.com/plugin/6317-lombok-plugin`
 
@@ -28,7 +28,7 @@ IntelliJ:
 , tworzymy dockerowy obraz - katalog z Dockerfile:
 `mvn install dockerfile:build`
 
-2..Uruchamiamy obraz: `docker run -p 8888:8888 <id obrazu>`
+2.. Uruchamiamy obraz: `docker run -p 8888:8888 <id obrazu>`
 
 -------------------------------------------------------------
 #Dokumentacja REST:
